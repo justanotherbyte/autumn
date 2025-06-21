@@ -13,6 +13,10 @@ dependencies = [
 aio = [
     "aiohttp>=3.12.8",
 ]
+asgi = [
+    "starlette>=0.47.0",
+    "aiohttp>=3.12.8"
+]
 docs = [
     "furo>=2024.8.6",
     "sphinx>=8.2.3",
@@ -21,6 +25,9 @@ docs = [
 tests = [
     "pytest>=8.4.1",
     "pytest-cov>=6.2.1",
+]
+dev = [
+    "uvicorn>=0.34.3",
 ]
 
 [tool.pytest.ini_options]
