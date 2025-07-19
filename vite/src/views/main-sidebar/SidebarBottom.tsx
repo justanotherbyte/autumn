@@ -5,15 +5,15 @@ import { useEnv } from "@/utils/envUtils";
 import { SidebarContact } from "./SidebarContact";
 import { useSidebarContext } from "./SidebarContext";
 import { cn } from "@/lib/utils";
-import { Blocks, Book } from "lucide-react";
+import { Blocks, Book, PanelLeft } from "lucide-react";
 import { useSession } from "@/lib/auth-client";
 import { UserButton } from "./components/UserButton";
 
-export default function SidebarBottom() {
+export default function SidebarBottom({ state, setState }: { state: "expanded" | "collapsed", setState: (state: "expanded" | "collapsed") => void }) {
   const env = useEnv();
   // const { user, isLoaded } = useUser();
-  const { state } = useSidebarContext();
-  const expanded = state == "expanded";
+  // const { state } = useSidebarContext();
+  const collapsed = state == "collapsed";
 
   const { data: session } = useSession();
   const user = session?.user;
@@ -21,6 +21,11 @@ export default function SidebarBottom() {
   return (
     <div className="">
       <div className="px-4">
+        {collapsed && (
+          <button onClick={() => setState("expanded")}>
+            <PanelLeft size={14} />
+          </button>
+        )}
         <NavButton
           value="integrations/stripe"
           icon={<Blocks size={14} />}

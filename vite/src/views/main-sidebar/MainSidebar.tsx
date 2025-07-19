@@ -89,7 +89,7 @@ export const MainSidebar = () => {
         </div>
       </div>
       {/* Sidebar bottom */}
-      <SidebarBottom />
+      <SidebarBottom state={state} setState={setState} />
     </div>
   );
 };
